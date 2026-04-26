@@ -1,12 +1,9 @@
 import getpass
 import sys
 import os
-
-# Define your secure credentials
 STORED_USER = "admin"
 STORED_PASS = "TrustLab2026"
-STORED_CODEWORD = "I am the one who knocks" # Your alphanumeric passkey/dialogue
-
+STORED_CODEWORD = "I am the one who knocks" 
 def secure_login():
     attempts = 0
     while attempts < 3:
@@ -40,13 +37,11 @@ if __name__ == "__main__":
         print("1. Run Network Port Scanner")
         print("2. Analyze Security Logs")
         choice = input("\nSelect an option: ")
-        
         if choice == '1':
-            import port_scanner_revised # Launches your scanner
+            import port_scanner_revised
             port_scanner_revised.run_scanner()
         elif choice == '2':
-            import log_parser # Launches your parser
-            # Ensure path is correct for your system
+            import log_parser 
             log_parser.parse_logs("server_traffic.log")
     else:
         sys.exit()

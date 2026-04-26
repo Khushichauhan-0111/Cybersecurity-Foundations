@@ -1,18 +1,11 @@
 import os
 import sys
-
-# ANSI Colors for professional output
 RED = '\033[91m'
 GREEN = '\033[92m'
 YELLOW = '\033[93m'
 BLUE = '\033[94m'
 RESET = '\033[0m'
-
-# --- AUTOMATIC PATH LOCATOR ---
-# This line finds the folder where this script (monitor.py) is actually saved
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# THE BASELINE (The Ground Truth)
 BASELINES = {
     "healthcare.txt": {"DOSE": "5mg", "MEDICATION": "Insulin"},
     "inventory.txt": {"PRICE": "500", "STOCK": "10"},
@@ -21,7 +14,6 @@ BASELINES = {
 
 def load_file_data(filename):
     """Constructs the absolute path and reads the file data."""
-    # This combines the folder path with the filename
     file_path = os.path.join(SCRIPT_DIR, filename)
     
     data = {}
@@ -32,7 +24,7 @@ def load_file_data(filename):
     with open(file_path, "r") as f:
         for line in f:
             if ":" in line:
-                key, val = line.split(":", 1) # Split only on the first colon
+                key, val = line.split(":", 1) 
                 data[key.strip()] = val.strip()
     return data
 
@@ -54,8 +46,6 @@ def forensic_analysis(filename):
             print(f"{RED}[!] ALERT: Unauthorized Modification Detected in {key}!{RESET}")
             print(f"    Expected: {expected_val}")
             print(f"    Actual:   {actual_val if actual_val else 'MISSING'}")
-
-            # INDUSTRY SPECIFIC LOGIC
             if "DOSE" in key:
                 print(f"{RED}    RISK: High probability of medical harm.{RESET}")
             elif "PRICE" in key:

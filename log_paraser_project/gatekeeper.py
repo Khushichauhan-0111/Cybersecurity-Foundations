@@ -2,13 +2,13 @@ import getpass
 import sys
 import os
 STORED_USER = "admin"
-STORED_PASS = "TrustLab2026"
+STORED_PASS = "@2026"
 STORED_CODEWORD = "I am the one who knocks" 
 def secure_login():
     attempts = 0
     while attempts < 3:
         print("\n" + "="*40)
-        print("      NATIONAL SECURITY TERMINAL")
+        print("  SECURITY TERMINAL")
         print("="*40)
         
         user = input("Username: ")
